@@ -1,5 +1,5 @@
 name: selectable_list
-description: A new Flutter package project.
+description: A Flutter package that offers a custom list with selected items.
 version: 0.0.1
 homepage:
 
