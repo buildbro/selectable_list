@@ -8,8 +8,14 @@ class SelectableList extends StatefulWidget {
   final String itemLabelKey;
   final String itemIconKey;
   final String itemIdKey;
+  final Function(Map<String, dynamic> data) itemChanged;
 
-  SelectableList({required this.list, required this.itemLabelKey, required this.itemIconKey, required this.itemIdKey});
+  SelectableList({required this.list,
+    required this.itemLabelKey,
+    required this.itemIconKey,
+    required this.itemIdKey,
+    required this.itemChanged
+  });
 
   @override
   _SelectableListState createState() => _SelectableListState();
@@ -34,6 +40,9 @@ class _SelectableListState extends State<SelectableList> {
   Widget _defaultListItem(Map<String, dynamic> item) {
     return InkWell(
       onTap: () {
+        widget.itemChanged({
+          "selected": item[widget.itemIdKey]
+        });
         setState(() {
           this.selectedItem = item[widget.itemIdKey];
         });
