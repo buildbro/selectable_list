@@ -11,17 +11,24 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages). 
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+Selectedable List is a flutter package that offers a widget for rendering lists that users of your app can tap on items to select them.
+Everytime an item is selected, the widget returns data about the current selections. You can use this data in your app how best you prefer.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+1. Custom Selectable List Lidget
+2. Item icon
+3. Selection icon
+4. Item select callback
+5. Support for list of custom Object/Model.
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+First, you need to add the package to your flutter project.
+At the moment you can do that by adding the following lines to the `dependencies` section of your `pubspec.yaml` file:
+```dart
+selectable_list:
+    git: https://github.com/buildbro/selectable_list.git
 
 ## Usage
 
@@ -29,7 +36,29 @@ TODO: Include short and useful examples for package users. Add longer examples
 to `/example` folder. 
 
 ```dart
-const like = 'sample';
+List<Movie> movies = [
+    Movie("1", "First Item", "description", "photo"),
+    Movie("2", "Second Item", "description", "photo"),
+  ];
+  
+String data = "";
+  
+//Add the following code where you wish to show the Custom List Widget
+Column(
+              children: [
+                SelectableList(
+                  list: movies,
+                  itemLabelKey: "title",
+                  itemIconKey: "itemIconKey",
+                  itemIdKey: "id",
+                  itemChanged: (value) {
+                    data = value["selected"];
+                    print(value);
+                  },
+                ),
+                MaterialButton(onPressed: (){ print(data); }, child: Text("Debug"),)
+              ],
+            )
 ```
 
 ## Additional information
