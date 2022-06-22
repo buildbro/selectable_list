@@ -29,6 +29,7 @@ At the moment you can do that by adding the following lines to the `dependencies
 ```dart
 selectable_list:
     git: https://github.com/buildbro/selectable_list.git
+```
 
 ## Usage
 
