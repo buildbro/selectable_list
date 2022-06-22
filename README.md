@@ -30,9 +30,9 @@ At the moment you can do that by adding the following lines to the `dependencies
 selectable_list:
     git: https://github.com/buildbro/selectable_list.git
 ```
-## Prerequsite
+## Prerequisite
 #Model/Object
-In order to use this package, the model class for your list must implement a toMap method as shown below:
+In order to use this package, the model class for your list must implement a `toMap()` method. See the following example Model for guide on how to implement the method:
 ```dart
 class Movie {
   String id;
