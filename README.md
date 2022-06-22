@@ -30,6 +30,28 @@ At the moment you can do that by adding the following lines to the `dependencies
 selectable_list:
     git: https://github.com/buildbro/selectable_list.git
 ```
+## Prerequsite
+#Model/Object
+In order to use this package, the model class for your list must implement a toMap method as shown below:
+```dart
+class Movie {
+  String id;
+  String title;
+  String description;
+  String photo;
+
+  Movie(this.id, this.title, this.description, this.photo);
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'title': title,
+      'photo': photo,
+      'description': description,
+    };
+  }
+}
+```
 
 ## Usage
 
@@ -46,20 +68,20 @@ String data = "";
   
 //Add the following code where you wish to show the Custom List Widget
 Column(
-              children: [
-                SelectableList(
-                  list: movies,
-                  itemLabelKey: "title",
-                  itemIconKey: "itemIconKey",
-                  itemIdKey: "id",
-                  itemChanged: (value) {
-                    data = value["selected"];
-                    print(value);
-                  },
-                ),
-                MaterialButton(onPressed: (){ print(data); }, child: Text("Debug"),)
-              ],
-            )
+  children: [
+    SelectableList(
+      list: movies,
+      itemLabelKey: "title",
+      itemIconKey: "itemIconKey",
+      itemIdKey: "id",
+      itemChanged: (value) {
+      data = value["selected"];
+      print(value);
+      },
+    ),
+  MaterialButton(onPressed: (){ print(data); }, child: Text("Debug"),)
+  ],
+)
 ```
 
 ## Additional information
