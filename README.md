@@ -10,7 +10,7 @@ For general information about developing packages, see the Dart guide for
 and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages). 
 -->
-
+# Selectedable List
 Selectedable List is a flutter package that offers a widget for rendering lists that users of your app can tap on items to select them.
 Everytime an item is selected, the widget returns data about the current selections. You can use this data in your app how best you prefer.
 
@@ -31,7 +31,7 @@ selectable_list:
     git: https://github.com/buildbro/selectable_list.git
 ```
 ## Prerequisite
-#Model/Object
+### Model/Object
 In order to use this package, the model class for your list must implement a `toMap()` method. See the following example Model for guide on how to implement the method:
 ```dart
 class Movie {
@@ -57,6 +57,9 @@ class Movie {
 
 TODO: Include short and useful examples for package users. Add longer examples
 to `/example` folder. 
+
+### Import package:
+``` import 'package:selectable_list/selectable_list.dart'; ```
 
 ```dart
 List<Movie> movies = [
